@@ -1,0 +1,112 @@
+/* Global Reset & Variables */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+:root {
+    --bg-color: #1e1e2e; /* Dark Background */
+    --calc-bg: #28293d;  /* Calculator Body */
+    --btn-bg: #3a3b52;   /* Button Color */
+    --btn-hover: #484964;
+    --text-main: #ffffff;
+    --text-secondary: #a1a1aa;
+    --accent-blue: #4d94ff;
+    --accent-red: #ff4d4d;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Calculator Container */
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 45vh;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+    background-color: var(--calc-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    gap: 12px;
+}
+
+/* Display Screen */
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 15px;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-bottom: 10px;
+}
+
+.previous-operand {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.current-operand {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: var(--btn-bg);
+    color: var(--text-main);
+    border-radius: 12px;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Utility Classes */
+.span-two {
+    grid-column: span 2;
+}
+
+.highlight-blue {
+    background-color: var(--accent-blue);
+    color: white;
+}
+.highlight-blue:hover {
+    background-color: #3a83f0;
+}
+
+.highlight-red {
+    background-color: var(--accent-red);
+    color: white;
+}
+.highlight-red:hover {
+    background-color: #e63e3e;
+}
